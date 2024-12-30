@@ -60,6 +60,8 @@ dependencies:
   flutter_svg: ^2.0.14
   # for adapting screens and font size
   flutter_screenutil: ^5.9.3
+  # build runner a build system for dart code generation and modular compilation.
+  build_runner: ^2.4.13
 dev_dependencies:
   flutter_test:
     sdk: flutter
