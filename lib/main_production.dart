@@ -13,3 +13,6 @@ void main() async {
 
 // to run release version use this command
 // flutter run --release -t lib/main_production.dart --flavor production
+// to build andriod apk use this command
+// flutter build apk --release -t lib/main_production.dart --flavor production
+// flutter build apk --flavor Production -t lib/main_production.dart
