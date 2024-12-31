@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/theming/spacing.dart';
 import 'package:flutter_advanced/core/theming/styles.dart';
 import 'package:flutter_advanced/core/widgets/app_text_button.dart';
-import 'package:flutter_advanced/features/login/data/models/login_request_body.dart';
 import 'package:flutter_advanced/features/login/logic/cubit/login_cubit.dart';
-import 'package:flutter_advanced/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:flutter_advanced/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:flutter_advanced/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpacing(16),
                     const TermsAndConditionsText(),
                     verticalSpacing(60),
-                    const AlreadyHaveAccountText(),
+                    const DontHaveAccountText(),
                     const LoginBlocListener(),
                   ],
                 ),
@@ -70,12 +69,16 @@ class LoginScreen extends StatelessWidget {
 
   validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().loginFormKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
-          );
+      context.read<LoginCubit>().emitLoginStates();
     }
+
+    // if (context.read<LoginCubit>().loginFormKey.currentState!.validate()) {
+    //   context.read<LoginCubit>().emitLoginStates(
+    //         LoginRequestBody(
+    //           email: context.read<LoginCubit>().emailController.text,
+    //           password: context.read<LoginCubit>().passwordController.text,
+    //         ),
+    //       );
+    // }
   }
 }
