@@ -30,6 +30,23 @@ android {
         versionName = flutter.versionName
     }
 
+   //adding flutter flavor for development and production 
+    flavorDimensions "default"
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        development {
+            // dev utilizes minSDKVersion = 21 which is the default in Flutter
+            dimension "default"
+            applicationIdSuffix = ".dev"
+            resValue "string", "app_name", "DocDoc development"
+        }
+        production {
+            // prod utilizes minSDKVersion = 21 which is the default in Flutter
+            dimension "default"
+            resValue "string", "app_name", "DocDoc production"
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
