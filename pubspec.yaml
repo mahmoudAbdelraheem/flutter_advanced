@@ -62,6 +62,9 @@ dependencies:
   flutter_screenutil: ^5.9.3
   # build runner a build system for dart code generation and modular compilation.
   build_runner: ^2.4.13
+  # firebase core
+  firebase_core: ^3.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
