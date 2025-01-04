@@ -1,43 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced/core/theming/colors.dart';
-import 'package:flutter_advanced/core/theming/spacing.dart';
-import 'package:flutter_advanced/core/theming/styles.dart';
+import 'package:flutter_advanced/features/home/data/models/specialization_response_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'doctors_specuality_list_view_item.dart';
 
 class DoctorsSpecialityListView extends StatelessWidget {
-  const DoctorsSpecialityListView({super.key});
+  final List<SpecializationsData?> specializationsDataList;
+  const DoctorsSpecialityListView(
+      {super.key, required this.specializationsDataList});
 
   @override
   Widget build(BuildContext context) {
+    print('specializationsDataList: ${specializationsDataList.length}');
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: specializationsDataList.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsetsDirectional.only(
-              start: index == 0 ? 0 : 24.w,
-            ),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 28.r,
-                  backgroundColor: ColorsManager.lightBlue,
-                  child: SvgPicture.asset(
-                    'assets/svgs/general_speciality.svg',
-                    width: 40.w,
-                    height: 40.h,
-                  ),
-                ),
-                verticalSpacing(8),
-                Text(
-                  'General',
-                  style: TextStyles.font12DarkBlueRegular,
-                ),
-              ],
-            ),
+          return DoctorsSpecialityListViewItem(
+            specializationsData: specializationsDataList[index],
+            itemIndex: index,
           );
         },
       ),

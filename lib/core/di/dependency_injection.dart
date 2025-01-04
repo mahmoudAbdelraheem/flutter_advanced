@@ -7,6 +7,9 @@ import 'package:flutter_advanced/features/signup/data/repos/signup_repo.dart';
 import 'package:flutter_advanced/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../features/home/data/apis/home_api_service.dart';
+import '../../features/home/data/repos/home_repo_.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
@@ -22,4 +25,10 @@ Future<void> setupGetIt() async {
   getIt
       .registerLazySingleton<SignupRepo>(() => SignupRepo(getIt<ApiService>()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<SignupRepo>()));
+
+  //! home api services repo and cubit
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt
+      .registerLazySingleton<HomeRepo>(() => HomeRepo(getIt<HomeApiService>()));
+  // getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt<HomeRepo>()));
 }
