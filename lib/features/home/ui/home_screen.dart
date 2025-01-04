@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/theming/spacing.dart';
-import 'package:flutter_advanced/features/home/logic/home_cubit.dart';
-import 'package:flutter_advanced/features/home/logic/home_state.dart';
 import 'package:flutter_advanced/features/home/ui/widgets/specializations_and_doctors_bloc_builder.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/doctors_speciality_see_all.dart';
 import 'widgets/doctors_blue_container.dart';

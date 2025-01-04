@@ -10,7 +10,6 @@ class DoctorsSpecialityListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('specializationsDataList: ${specializationsDataList.length}');
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
