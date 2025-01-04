@@ -19,7 +19,6 @@ class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
           current is SpecializationsSuccess ||
           current is SpecializationsError,
       builder: (context, state) {
-        print('the state is: $state');
         return state.maybeWhen(
           specializationsLoading: () => setupLoading(),
           specializationsSuccess: (specializationResponseModel) {
@@ -28,7 +27,7 @@ class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
             return setupSuccess(specializationsDataList);
           },
           specializationsError: (errorHandler) => setupError(),
-          orElse: () => const Text('Something went wrong'),
+          orElse: () => const SizedBox.shrink(),
         );
       },
     );
