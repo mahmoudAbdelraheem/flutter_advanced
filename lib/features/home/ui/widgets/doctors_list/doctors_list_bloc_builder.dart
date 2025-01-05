@@ -19,8 +19,8 @@ class DoctorsListBlocBuilder extends StatelessWidget {
           doctorsSuccess: (doctorsList) {
             return setupSuccess(doctorsList);
           },
-          doctorsError: (errorHandler) {
-            return setupError(errorHandler);
+          doctorsError: () {
+            return setupError();
           },
           orElse: () {
             return const SizedBox.shrink();
@@ -30,7 +30,7 @@ class DoctorsListBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget setupError(errorHandler) {
+  Widget setupError() {
     return const SizedBox.shrink();
   }
 
