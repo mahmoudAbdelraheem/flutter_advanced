@@ -19,10 +19,10 @@ class DoctorsListViewItem extends StatelessWidget {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(15),
             child: CachedNetworkImage(
               imageUrl:
-                  'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?t=st=1735915668~exp=1735919268~hmac=3f4e6ad60b04f30869a18b8f28b6832065ed611aa6fe5491aaf194c0171f0641&w=740',
+                  'https://img.freepik.com/free-photo/doctors-day-handsome-brunette-cute-guy-medical-gown-with-crossed-hands_140725-162942.jpg',
               progressIndicatorBuilder: (context, url, downloadProgress) =>
                   Center(
                 child:
