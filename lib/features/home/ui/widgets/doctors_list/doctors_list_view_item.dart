@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced/core/theming/colors.dart';
 import 'package:flutter_advanced/core/theming/spacing.dart';
 import 'package:flutter_advanced/core/theming/styles.dart';
 import 'package:flutter_advanced/features/home/data/models/specialization_response_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctor? doctorModel;
@@ -18,20 +20,35 @@ class DoctorsListViewItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 16.h),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-            child: CachedNetworkImage(
-              imageUrl:
-                  'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?t=st=1735915668~exp=1735919268~hmac=3f4e6ad60b04f30869a18b8f28b6832065ed611aa6fe5491aaf194c0171f0641&w=740',
-              progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  Center(
-                child:
-                    CircularProgressIndicator(value: downloadProgress.progress),
-              ),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
+          CachedNetworkImage(
+            imageUrl:
+                "https://img.freepik.com/free-photo/doctors-day-handsome-brunette-cute-guy-medical-gown-with-crossed-hands_140725-162942.jpg",
+            progressIndicatorBuilder: (context, url, downloadProgress) {
+              return Shimmer.fromColors(
+                baseColor: ColorsManager.lightGray,
+                highlightColor: Colors.white,
+                child: Container(
+                  width: 110.w,
+                  height: 120.h,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: Colors.white,
+                  ),
+                ),
+              );
+            },
+            imageBuilder: (context, imageProvider) => Container(
               width: 110.w,
-              height: 110.h,
-              fit: BoxFit.contain,
+              height: 120.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(12.0),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
           horizontalSpacing(16),
